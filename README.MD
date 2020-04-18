@@ -1,15 +1,15 @@
 # NS协议
 
-##ns.h介绍
+## ns.h介绍
 
-###宏
+### 宏
 MAX_BUFFER_SIZE 缓冲区最大长度
 MAX_HOSTS 通信主体最大个数（在KDC.c中使用）
 PLAINTEXT_KEY_SIZE 字符串型密钥长度
 HOSTNAME_SIZE 通信主体名字长度
 NONCE_LEN 随机数长度（字符串类型）
 
-###结构体
+### 结构体
 struct host_s:  通信主体身份标识，包含：
 				hostname (字符串)
 				secretKey (字符串)
@@ -35,7 +35,7 @@ struct ticket_s： Alice发送给Bob的通信请求（协议的第三步周）�
 				 sessionKey （字符串）
 				 
 
-###函数
+### 函数
 
 void allocateRandomString(char *str, size_t size);
 产生随机密钥， str为传出参数
@@ -47,12 +47,12 @@ void rand_nonce_gen(char *nonce)
 随机数生成， nonce为传入/传出参数
 				
 
-##aes.h介绍
+## aes.h介绍
 
-###宏
+### 宏
 AES_BLOCK_SIZE 加密算法aes的加密块长度
 
-###函数
+### 函数
 int encrypt(void* buffer, size_t buffer_len, char* key, size_t key_len);
 加密函数，buffer为传入/传出参数，传入的是待加密数据，传出的是加密后的数据
 		key为加密密钥
@@ -62,7 +62,7 @@ int decrypt(void* buffer, size_t buffer_len, char* key, size_t key_len);
 		key为解密密钥
 
 
-##执行过程
+## 执行过程
 0.在本目录下运行make
 
 1.先运行kdc程序，即先给A、B两个需要互相通信的节点分发各自的密钥ka，kb
